@@ -1,5 +1,7 @@
 package iterator;
 
+import java.util.Arrays;
+import java.util.List;
 
 public class JantarMenu {
 
@@ -26,7 +28,11 @@ public class JantarMenu {
   }
   
   public Iterator criarIterator(){
-    return new JantarMenuIteratos(menuItens);
+    
+//    List<MenuItem> asList = Arrays.asList(menuItens);
+//    asList.iterator();
+    
+    return new JantarMenuIterator(menuItens);
   }
   
   

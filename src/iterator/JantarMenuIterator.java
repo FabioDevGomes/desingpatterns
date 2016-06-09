@@ -1,11 +1,11 @@
 package iterator;
 
-public class JantarMenuIteratos implements Iterator {
+public class JantarMenuIterator implements Iterator {
 
   MenuItem[] itens;
   int posicao = 0;
 
-  public JantarMenuIteratos(MenuItem[] itens) {
+  public JantarMenuIterator(MenuItem[] itens) {
     this.itens = itens;
   }
 
