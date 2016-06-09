@@ -7,6 +7,7 @@ public class CafeDaManhaMenu {
   ArrayList<MenuItem> menuItens;
   
   public CafeDaManhaMenu(){
+    menuItens = new ArrayList<>();
     addItem("Café simples", "Bacom com ovos", true, 2.20);
     addItem("Café especial", "algo com tomate e ovo", true, 1.99);
     addItem("Café duplo", "algo com tomate e ovo", true, 2.50);

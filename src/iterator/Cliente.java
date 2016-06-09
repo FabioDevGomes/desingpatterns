@@ -4,7 +4,11 @@ package iterator;
 public class Cliente {
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
+    JantarMenu jantarMenu = new JantarMenu();
+    CafeDaManhaMenu cafeDaManhaMenu = new CafeDaManhaMenu();
+    
+    Garconete garconete = new Garconete(jantarMenu, cafeDaManhaMenu);
+    garconete.exibirMenu();
 
   }
 

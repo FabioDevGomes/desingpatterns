@@ -14,15 +14,14 @@ public class Garconete {
   public void exibirMenu(){
     Iterator jantarIterator = jantarMenu.criarIterator();
     
-    System.out.println("Menu\n------\nJantar");
+    System.out.println("Menu Jantar \n=================");
     exibirMenu(jantarIterator);
     
-    System.out.println("Menu\n------\nCafé da Manhã");
+    System.out.println("Menu Café da Manhã\n===============");
     exibirMenu(cafeDaManhaMenu.criarIterator());
   }
 
   public void exibirMenu(Iterator iterator){
-    MenuItem item = (MenuItem) iterator.next();
     while (iterator.hasNext()) {
       MenuItem type = (MenuItem) iterator.next();
       System.out.println(type.getNome());

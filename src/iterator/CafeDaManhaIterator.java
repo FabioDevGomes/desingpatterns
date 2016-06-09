@@ -21,7 +21,7 @@ public class CafeDaManhaIterator implements Iterator{
 
   @Override
   public boolean hasNext() {
-    if(itens.get(index + 1) == null){
+    if(itens.size() == index){
       return false;
     }else{
       return true;

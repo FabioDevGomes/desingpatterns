@@ -11,9 +11,9 @@ public class JantarMenu {
   
   public JantarMenu() {
     menuItens = new MenuItem[MAX_ITENS];
-      addItem("BLT Vegetariano", "algo com tomate e ovo", true, 2.99);
+      addItem("Arroz Vegetariano", "algo com tomate e ovo", true, 2.99);
       addItem("Bacon", "Bacon com tomate e ovo", false, 1.99);
-      addItem("BLT Vegetariano", "Bacon com tomate e ovo", true, 2.50);
+      addItem("BLT Vegetariano 2", "Bacon com tomate e ovo", true, 2.50);
       addItem("BLT ", "Bacon com tomate e ovo", false, 3.99);
   }
   
