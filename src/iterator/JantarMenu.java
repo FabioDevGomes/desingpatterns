@@ -1,9 +1,8 @@
 package iterator;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Iterator;
 
-public class JantarMenu {
+public class JantarMenu implements Menu {
 
   static final int MAX_ITENS = 6;
   int numeroDeItens = 0;

@@ -1,26 +1,24 @@
 package iterator;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Garconete {
 
-  JantarMenu jantarMenu;
-  CafeDaManhaMenu cafeDaManhaMenu;
+  ArrayList<Menu> menus;
   
-  public Garconete(JantarMenu jantarMenu, CafeDaManhaMenu cafeDaManhaMenu) {
-    this.jantarMenu = jantarMenu;
-    this.cafeDaManhaMenu = cafeDaManhaMenu;
+  public Garconete(ArrayList<Menu> menus) {
+    this.menus = menus;
   }
   
   public void exibirMenu(){
-    Iterator jantarIterator = jantarMenu.criarIterator();
-    
-    System.out.println("Menu Jantar \n=================");
-    exibirMenu(jantarIterator);
-    
-    System.out.println("Menu Café da Manhã\n===============");
-    exibirMenu(cafeDaManhaMenu.criarIterator());
+    for (Menu menu : menus) {
+      System.out.println("=================");
+      exibirMenu(menu.criarIterator());
+    }
   }
 
+  //Iteração polimórfica
   public void exibirMenu(Iterator iterator){
     while (iterator.hasNext()) {
       MenuItem type = (MenuItem) iterator.next();
@@ -31,6 +29,5 @@ public class Garconete {
       
     }
   }
-  
   
 }

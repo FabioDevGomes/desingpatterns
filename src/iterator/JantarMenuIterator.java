@@ -1,5 +1,7 @@
 package iterator;
 
+import java.util.Iterator;
+
 public class JantarMenuIterator implements Iterator {
 
   MenuItem[] itens;
