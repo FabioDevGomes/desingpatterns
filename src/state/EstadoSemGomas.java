@@ -11,26 +11,22 @@ public class EstadoSemGomas implements State{
 
   @Override
   public void inserirMoeda() {
-    // TODO Auto-generated method stub
-    
+    System.out.println("Ação inválida para o estado atual");
   }
 
   @Override
   public void acionarAlavanca() {
-    // TODO Auto-generated method stub
-    
+    System.out.println("Ação inválida para o estado atual");
   }
 
   @Override
   public void ejetarMoeda() {
-    // TODO Auto-generated method stub
-    
+    System.out.println("Ação inválida para o estado atual");
   }
 
   @Override
   public void entregarGoma() {
-    // TODO Auto-generated method stub
-    
+    System.out.println("Ação inválida para o estado atual");
   }
 
 }
