@@ -6,6 +6,7 @@ public class MaqinaGomaDeMascar {
   private State estadoSemGomas;
   private State estadoSemMoedas;
   private State estadoComMoedas;
+  private State estadoWinner;
 
   State estadoAtual = estadoSemGomas;
   private int count = 0;
@@ -15,7 +16,8 @@ public class MaqinaGomaDeMascar {
     estadoSemGomas = new EstadoSemGomas(this);
     estadoSemMoedas = new EstadoSemMoeda(this);
     estadoComMoedas = new EstadoComMoeda(this);
-
+    estadoWinner = new EstadoGanhador(this);
+    
     count = numeroDeGomas;
 
     if (numeroDeGomas > 0) {
@@ -81,6 +83,10 @@ public class MaqinaGomaDeMascar {
     System.out.println("\nA quantidade atual de gomas é: " + getCount());
     System.out.println("O estado atual da máquina é: " + getEstadoAtual());
     return super.toString();
+  }
+
+  public State getEstadoWinner() {
+    return estadoWinner;
   }
 
 }

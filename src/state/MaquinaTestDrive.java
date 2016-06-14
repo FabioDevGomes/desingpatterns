@@ -13,22 +13,22 @@ public class MaquinaTestDrive {
     maqinaGomaDeMascar.acionarAlavanca();
 
     maqinaGomaDeMascar.inserirMoeda();
-    maqinaGomaDeMascar.ejetarMoeda();
+//    maqinaGomaDeMascar.ejetarMoeda();
     maqinaGomaDeMascar.acionarAlavanca();
 
-    maqinaGomaDeMascar.inserirMoeda();
-    maqinaGomaDeMascar.inserirMoeda();
-    maqinaGomaDeMascar.acionarAlavanca();
-    
-    maqinaGomaDeMascar.inserirMoeda();
-    maqinaGomaDeMascar.acionarAlavanca();
-    
-    maqinaGomaDeMascar.inserirMoeda();
-    maqinaGomaDeMascar.acionarAlavanca();
-
-    System.out.println(maqinaGomaDeMascar);
-    
-    maqinaGomaDeMascar.recarregarGomas(10);
+//    maqinaGomaDeMascar.inserirMoeda();
+//    maqinaGomaDeMascar.inserirMoeda();
+//    maqinaGomaDeMascar.acionarAlavanca();
+//    
+//    maqinaGomaDeMascar.inserirMoeda();
+//    maqinaGomaDeMascar.acionarAlavanca();
+//    
+//    maqinaGomaDeMascar.inserirMoeda();
+//    maqinaGomaDeMascar.acionarAlavanca();
+//
+//    System.out.println(maqinaGomaDeMascar);
+//    
+//    maqinaGomaDeMascar.recarregarGomas(10);
 
     System.out.println(maqinaGomaDeMascar);
   }

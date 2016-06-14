@@ -1,9 +1,10 @@
 package state;
 
+import java.util.Random;
 
 public class EstadoComMoeda implements State{
 
-  
+  Random random = new Random(System.currentTimeMillis());
   MaqinaGomaDeMascar maquina;
   
   public EstadoComMoeda(MaqinaGomaDeMascar maquina) {
@@ -18,7 +19,12 @@ public class EstadoComMoeda implements State{
   @Override
   public void acionarAlavanca() {
     System.out.println("Você acionou a alavanca...");
-    maquina.setEstadoAtual(maquina.getEstadoVendido());
+    int winner = random.nextInt(5);
+    if(winner == 0 && (maquina.getCount() > 1)){
+      maquina.setEstadoAtual(maquina.getEstadoWinner());
+    }else{
+      maquina.setEstadoAtual(maquina.getEstadoVendido());
+    }
   }
 
   @Override
