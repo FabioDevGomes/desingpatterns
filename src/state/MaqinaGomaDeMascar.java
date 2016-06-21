@@ -81,8 +81,8 @@ public class MaqinaGomaDeMascar {
   @Override
   public String toString() {
     System.out.println("\nA quantidade atual de gomas é: " + getCount());
-    System.out.println("O estado atual da máquina é: " + getEstadoAtual());
-    return super.toString();
+    System.out.print("O estado atual da máquina é: "  );
+    return getEstadoAtual().toString();
   }
 
   public State getEstadoWinner() {
