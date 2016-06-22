@@ -47,7 +47,7 @@ public class PersonBeanImpl implements PersonBean {
   }
 
   @Override
-  public void setHotOrNorRating(int rating) {
+  public void setHotOrNotRating(int rating) {
     this.rating += rating;
     ratingCount ++;
   }
