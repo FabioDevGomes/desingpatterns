@@ -39,7 +39,6 @@ public class MatchMakingTestDrive {
     nonOwnerProxy.setHotOrNotRating(3);
     System.out.println("Sua classificação é: "+ ownerProxy.getHotOrNotRating());
     
-    
   }
   
   
