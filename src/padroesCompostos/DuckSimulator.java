@@ -37,12 +37,15 @@ public class DuckSimulator {
     
     bando.add(bandoDeMallardDucks);
     
-    
     System.out.println("== Duck Simulator / Bando ==");
+    
+    Quacklogist quacklogist = new Quacklogist();
+    bando.registerObserver(quacklogist);
+    
     simulate(bando);
     
-    System.out.println("== Duck Simulator / Bando de Mallarduks ==");
-    simulate(bandoDeMallardDucks);
+//    System.out.println("== Duck Simulator / Bando de Mallarduks ==");
+//    simulate(bandoDeMallardDucks);
     
     
     
