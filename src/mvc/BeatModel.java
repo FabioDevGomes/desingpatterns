@@ -14,7 +14,9 @@ import javax.sound.midi.Track;
 
 public class BeatModel implements BeatModelInterface, MetaEventListener{
 
+  @SuppressWarnings("rawtypes")
   ArrayList beatObservers = new ArrayList<>();
+  @SuppressWarnings("rawtypes")
   ArrayList bpmObservers = new ArrayList<>();
   int bpm = 90;
   Sequencer sequencer;
@@ -61,6 +63,11 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
     return bpm;
   }
 
+  private void beatEvent() {
+    notifyBeatObservers();
+  }
+
+  @SuppressWarnings("unchecked")
   @Override
   public void registerObserver(BeatObserver observer) {
     beatObservers.add(observer);
@@ -74,10 +81,10 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
     }
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public void registerObserver(BPMObserver observer) {
     bpmObservers.add(observer);
-    
   }
 
   @Override
@@ -86,7 +93,6 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
     if(indice >= 0){
       bpmObservers.remove(indice);
     }
-    
   }
   
   @Override
@@ -96,18 +102,12 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
       sequencer.start();
       setBPM(getBPM());
     }
-    
   }
   
-  private void beatEvent() {
-    notifyBeatObservers();
-    
-  }
-
   private void notifyBeatObservers() {
     for (int i = 0; i < beatObservers.size(); i++) {
       BeatObserver beatObserver = (BeatObserver) beatObservers.get(i);
-      beatObserver.updateBPM();
+      beatObserver.updateBeat();
     }
   }
 
@@ -142,7 +142,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
       int key = trackList[i];
       if(key != 0){
         track.add(makeEvent(144, 9, key, 100, i));
-        track.add(makeEvent(128, 9, key, 100, i+1)); // 1+1 <> i+1
+        track.add(makeEvent(128, 9, key, 100, 1+1)); // 1+1 <> i+1
       }
     }
   }
