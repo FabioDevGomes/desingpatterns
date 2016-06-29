@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.sql.rowset.spi.SyncFactory;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -173,7 +172,9 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver{
 
   @Override
   public void updateBeat() {
-    beatBar.setValue(100);
+    if (beatBar != null) {
+      beatBar.setValue(100);
+   }
   }
 
 

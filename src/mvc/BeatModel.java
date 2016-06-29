@@ -51,18 +51,12 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
     
   }
 
-  private void notifyBPMObservers() {
-    for (int i = 0; i < bpmObservers.size(); i++) {
-      BPMObserver bpmObserver = (BPMObserver) bpmObservers.get(i);
-      bpmObserver.updateBpm();
-    }
-  }
-
   @Override
   public int getBPM() {
     return bpm;
   }
 
+  //TODO Código deveria ser chamado pela biblioteca MIDI, mas não está quando sequencer.setLoopCount() é usado!
   private void beatEvent() {
     notifyBeatObservers();
   }
@@ -72,12 +66,11 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
   public void registerObserver(BeatObserver observer) {
     beatObservers.add(observer);
   }
-
-  @Override
-  public void removeObserver(BeatObserver observer) {
-    int indice = beatObservers.indexOf(observer);
-    if(indice >= 0){
-      beatObservers.remove(indice);
+  
+  private void notifyBeatObservers() {
+    for (int i = 0; i < beatObservers.size(); i++) {
+      BeatObserver beatObserver = (BeatObserver) beatObservers.get(i);
+      beatObserver.updateBeat();
     }
   }
 
@@ -85,6 +78,22 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
   @Override
   public void registerObserver(BPMObserver observer) {
     bpmObservers.add(observer);
+  }
+
+  private void notifyBPMObservers() {
+    for (int i = 0; i < bpmObservers.size(); i++) {
+      BPMObserver bpmObserver = (BPMObserver) bpmObservers.get(i);
+      bpmObserver.updateBpm();
+    }
+  }
+
+
+  @Override
+  public void removeObserver(BeatObserver observer) {
+    int indice = beatObservers.indexOf(observer);
+    if(indice >= 0){
+      beatObservers.remove(indice);
+    }
   }
 
   @Override
@@ -103,13 +112,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
       setBPM(getBPM());
     }
   }
-  
-  private void notifyBeatObservers() {
-    for (int i = 0; i < beatObservers.size(); i++) {
-      BeatObserver beatObserver = (BeatObserver) beatObservers.get(i);
-      beatObserver.updateBeat();
-    }
-  }
+
 
   public void setUpMidi(){
     try {
@@ -119,6 +122,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
       sequence = new Sequence(Sequence.PPQ, 4);
       track = sequence.createTrack();
       sequencer.setTempoInBPM(getBPM());
+      sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -142,7 +146,7 @@ public class BeatModel implements BeatModelInterface, MetaEventListener{
       int key = trackList[i];
       if(key != 0){
         track.add(makeEvent(144, 9, key, 100, i));
-        track.add(makeEvent(128, 9, key, 100, 1+1)); // 1+1 <> i+1
+        track.add(makeEvent(128, 9, key, 100, i+1)); // 1+1 <> i+1
       }
     }
   }
